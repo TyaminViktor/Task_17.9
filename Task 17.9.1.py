@@ -32,14 +32,14 @@ def sorting(any_list):
 
 
 def comparing(any_list, any_number):
-    any_number = float(any_number)
-    for i in range(1, len(any_list)):
+    any_number, position = float(any_number), 0
+    for i in range(0, len(any_list)):
         if any_list[i] >= any_number:
-            position = i - 1
+            position = i
             break
-    else:
-        position = len(any_list)
-    print(f"Ближайшая позиция в последовательности - {position + 1}")
+    if position - 1 < 0 or position == len(any_list):
+        position = "Отсутствует. Число выходит за пределы последовательности"
+    print(f"Ближайшая позиция в последовательности - {position}")
 
 
 some_str = input("Введите последовательность чисел, отделяя каждое последующее одним пробелом: ")
